@@ -6,6 +6,6 @@ namespace CQRS_Sample.RequestModels.QueryRequestModels
 {
 	public class LoadRequestModel
 	{
-		public Guid OrderId { get; set; }
+		public String MSSV { get; set; }
 	}
 }

@@ -29,7 +29,7 @@ namespace CQRS_Sample
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.gbThongTin = new System.Windows.Forms.GroupBox();
 			this.dtNgaySinh = new System.Windows.Forms.DateTimePicker();
 			this.btAdd = new System.Windows.Forms.Button();
@@ -39,12 +39,8 @@ namespace CQRS_Sample
 			this.lbMSSV = new System.Windows.Forms.Label();
 			this.tbMSSV = new System.Windows.Forms.TextBox();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.clMSSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.clHoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.clNgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.btFind = new System.Windows.Forms.Button();
-			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.tbMS = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.gbThongTin.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -128,19 +124,14 @@ namespace CQRS_Sample
 			// dataGridView1
 			// 
 			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STT,
-            this.clMSSV,
-            this.clHoTen,
-            this.clNgaySinh});
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.dataGridView1.Location = new System.Drawing.Point(22, 221);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.RowHeadersVisible = false;
@@ -149,26 +140,6 @@ namespace CQRS_Sample
 			this.dataGridView1.ShowEditingIcon = false;
 			this.dataGridView1.Size = new System.Drawing.Size(568, 191);
 			this.dataGridView1.TabIndex = 2;
-			// 
-			// STT
-			// 
-			this.STT.HeaderText = "STT";
-			this.STT.Name = "STT";
-			// 
-			// clMSSV
-			// 
-			this.clMSSV.HeaderText = "MSSV";
-			this.clMSSV.Name = "clMSSV";
-			// 
-			// clHoTen
-			// 
-			this.clHoTen.HeaderText = "Họ Tên";
-			this.clHoTen.Name = "clHoTen";
-			// 
-			// clNgaySinh
-			// 
-			this.clNgaySinh.HeaderText = "Ngày Sinh";
-			this.clNgaySinh.Name = "clNgaySinh";
 			// 
 			// btFind
 			// 
@@ -179,14 +150,15 @@ namespace CQRS_Sample
 			this.btFind.TabIndex = 6;
 			this.btFind.Text = "Find";
 			this.btFind.UseVisualStyleBackColor = true;
+			this.btFind.Click += new System.EventHandler(this.btFind_Click);
 			// 
-			// textBox4
+			// tbMS
 			// 
-			this.textBox4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.textBox4.Location = new System.Drawing.Point(388, 182);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(135, 32);
-			this.textBox4.TabIndex = 7;
+			this.tbMS.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.tbMS.Location = new System.Drawing.Point(388, 182);
+			this.tbMS.Name = "tbMS";
+			this.tbMS.Size = new System.Drawing.Size(135, 32);
+			this.tbMS.TabIndex = 7;
 			// 
 			// label3
 			// 
@@ -204,7 +176,7 @@ namespace CQRS_Sample
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(619, 432);
 			this.Controls.Add(this.label3);
-			this.Controls.Add(this.textBox4);
+			this.Controls.Add(this.tbMS);
 			this.Controls.Add(this.btFind);
 			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.gbThongTin);
@@ -228,12 +200,8 @@ namespace CQRS_Sample
 		private System.Windows.Forms.Label lbMSSV;
 		private System.Windows.Forms.TextBox tbMSSV;
 		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-		private System.Windows.Forms.DataGridViewTextBoxColumn clMSSV;
-		private System.Windows.Forms.DataGridViewTextBoxColumn clHoTen;
-		private System.Windows.Forms.DataGridViewTextBoxColumn clNgaySinh;
 		private System.Windows.Forms.Button btFind;
-		private System.Windows.Forms.TextBox textBox4;
+		private System.Windows.Forms.TextBox tbMS;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.DateTimePicker dtNgaySinh;
 		private System.Windows.Forms.TextBox t;

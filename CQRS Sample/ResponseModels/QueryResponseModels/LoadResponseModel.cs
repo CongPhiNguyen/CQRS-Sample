@@ -14,7 +14,7 @@ namespace CQRS_Sample.ResponseModels.QueryResponseModels
 	public class LoadResponseModel
 	{
 		// Các thông tin mình cần load ở đây
-		List<SinhVien> sv { get; set;}
+		public List<SinhVien> sinhViens { get; set;}
 		public bool isSuccess { get; set; }
 		// Này thì trả về là đc hay không
 		public String error { get; set; }
